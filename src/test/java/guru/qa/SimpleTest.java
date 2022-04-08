@@ -2,32 +2,44 @@ package guru.qa;
 
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.WebDriverRunner;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 public class SimpleTest {
 
+    @BeforeAll
+    static void initDB() {
+        System.out.println("### @BeforeAll");
+    }
+
     @BeforeEach
     void openYA(){
-        Selenide.open("https://yandex.ru/");
+        System.out.println("### @BeforeEach");
+      //  Selenide.open("https://yandex.ru/");
     }
 
     @AfterEach
     void close(){
-        WebDriverRunner.closeWindow();
+        System.out.println("### @AfterEach");
+      //  WebDriverRunner.closeWindow();
+    }
+
+    @AfterAll
+    static void cleanDB() {
+        System.out.println("### @BeforeAll");
     }
 
 
     @Test
-    void assertTest1() {
+    void assertTest() {
+        System.out.println("###   @Test 0");
 
         // поиск в новостях
 
     }
 
     @Test
-    void assertTest2() {
+    void assertTest1() {
+        System.out.println("###   @Test 1");
 
         // поиск в картинках
 

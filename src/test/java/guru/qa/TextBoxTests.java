@@ -34,5 +34,6 @@ public class TextBoxTests {
 
         $("[id=output] [id=name]").shouldHave(text(name));
         $("[id=output]").$("[id=name]").shouldHave(text(name));
+
     }
 }

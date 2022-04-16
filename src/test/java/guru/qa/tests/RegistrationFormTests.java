@@ -32,6 +32,8 @@ public class RegistrationFormTests {
         $(".react-datepicker__month-select").selectOption("May");
         $(".react-datepicker__year-select").selectOption("1999");
         $(".react-datepicker__day--026").click();
-        
+        $("#subjectsInput").setValue("English").pressEnter();
+        $("#hobbies-checkbox-2").parent().click();
+        $("#uploadPicture").uploadFromClasspath("img/1.png");
     }
 }

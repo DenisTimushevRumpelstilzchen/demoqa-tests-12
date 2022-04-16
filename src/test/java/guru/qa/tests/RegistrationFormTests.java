@@ -5,6 +5,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
 public class RegistrationFormTests {
@@ -35,5 +36,14 @@ public class RegistrationFormTests {
         $("#subjectsInput").setValue("English").pressEnter();
         $("#hobbies-checkbox-2").parent().click();
         $("#uploadPicture").uploadFromClasspath("img/1.png");
+        $("#currentAddress").setValue("st. Prechistenka 12/2");
+        $("#state").click();
+        $("#stateCity-wrapper").$(byText("Haryana")).click();
+        $("#city").click();
+        $("#stateCity-wrapper").$(byText("Karnal")).click();
+        $("#submit").click();
+        $("#example-modal-sizes-title-lg").shouldHave(text("example-modal-sizes-title-lg"));
+        $(".table-responsive").shouldHave(text("Alexander Pushkin"), text("alexanderpushkin@mail.ru"),
+                text("9261234567"), text("May"), text("1999"), text("st. Prechistenka 12/2"));
     }
 }

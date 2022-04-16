@@ -26,6 +26,12 @@ public class RegistrationFormTests {
         $("#firstName").setValue("Alexander");
         $("#lastName").setValue("Pushkin");
         $("#userEmail").setValue("alexanderpushkin@mail.ru");
-        $("gender-radio-1").click();
+        $("#gender-radio-1").parent().click(); //parent() указывает на родителя клика
+        $("#userNumber").setValue("9261234567");
+        $("#dateOfBirthInput").click();
+        $(".react-datepicker__month-select").selectOption("May");
+        $(".react-datepicker__year-select").selectOption("1999");
+        $(".react-datepicker__day--026").click();
+        
     }
 }

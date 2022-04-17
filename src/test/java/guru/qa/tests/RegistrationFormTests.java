@@ -46,6 +46,7 @@ public class RegistrationFormTests {
 
         $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
         $(".table-responsive").shouldHave(text("Alexander Pushkin"), text("alexanderpushkin@mail.ru"),
-                text("9261234567"), text("st. Prechistenka 12/2")); // сверка результата
+                text("9261234567"), text("st. Prechistenka 12/2"), text("English"),
+                text("Haryana"), text("Karnal")); // сверка результата
     }
 }

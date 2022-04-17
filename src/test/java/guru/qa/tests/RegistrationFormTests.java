@@ -3,12 +3,14 @@ package guru.qa.tests;
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
 public class RegistrationFormTests {
+    // домашнее задание 3. Погружаемся в инструментарий и библиотеки. от 01 апреля 2022 г.
 
     @BeforeAll
     static void setUp() {
@@ -18,7 +20,6 @@ public class RegistrationFormTests {
 
     @Test
     void fillFormTest() {
-        String name = "Alexander Pushkin";
         open("/automation-practice-form");
         $(".practice-form-wrapper").shouldHave(text("Student Registration Form"));
         executeJavaScript("$('footer').remove()"); // убираем баннер
@@ -42,8 +43,9 @@ public class RegistrationFormTests {
         $("#city").click();
         $("#stateCity-wrapper").$(byText("Karnal")).click();
         $("#submit").click();
-        $("#example-modal-sizes-title-lg").shouldHave(text("example-modal-sizes-title-lg"));
+
+        $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
         $(".table-responsive").shouldHave(text("Alexander Pushkin"), text("alexanderpushkin@mail.ru"),
-                text("9261234567"), text("May"), text("1999"), text("st. Prechistenka 12/2"));
+                text("9261234567"), text("st. Prechistenka 12/2")); // сверка результата
     }
 }

@@ -7,14 +7,16 @@ import org.junit.jupiter.api.Test;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
+import static guru.qa.utils.RandomUtils.getRandomEmail;
+import static guru.qa.utils.RandomUtils.getRandomString;
 import static java.lang.String.format;
 
 public class RegistrationFormWithRandomUtilsTests {
     // домашнее задание 5. Продолжаем разрабатывать автотесты. PageObjects
 
-    String firstName = "Alexander",
-            lastName = "Pushkin",
-            email = "alexanderpushkin@mail.ru";
+    String firstName = getRandomString(10),
+            lastName = getRandomString(10),
+            email = getRandomEmail();
     String expectedFullName = format("%s %s", firstName, lastName);
 
     @BeforeAll

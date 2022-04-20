@@ -57,6 +57,6 @@ public class RegistrationFormWithFakerTests {
 
         $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
         $(".table-responsive").shouldHave(text(expectedFullName), text(email),
-                text("9261234567"), text("English"), text("Haryana"), text("Karnal"));
+                text("9261234567"), text("English"), text("Haryana"), text(currentAddress), text("Karnal"));
     }
 }

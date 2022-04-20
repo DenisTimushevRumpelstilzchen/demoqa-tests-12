@@ -20,7 +20,8 @@ public class RegistrationFormWithFakerTests {
     String firstName = faker.name().firstName(),
             lastName = faker.name().lastName(),
             email = faker.internet().emailAddress(),
-            currentAddress = faker.rickAndMorty().quote();
+            currentAddress = faker.rickAndMorty().quote(),
+            mobile = faker.phoneNumber().subscriberNumber(10);
     String expectedFullName = format("%s %s", firstName, lastName);
 
     @BeforeAll
@@ -40,7 +41,7 @@ public class RegistrationFormWithFakerTests {
         $("#lastName").setValue(lastName);
         $("#userEmail").setValue(email);
         $("#gender-radio-1").parent().click();
-        $("#userNumber").setValue("9261234567");
+        $("#userNumber").setValue(mobile);
         $("#dateOfBirthInput").click();
         $(".react-datepicker__month-select").selectOption("May");
         $(".react-datepicker__year-select").selectOption("1999");
@@ -57,6 +58,6 @@ public class RegistrationFormWithFakerTests {
 
         $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
         $(".table-responsive").shouldHave(text(expectedFullName), text(email),
-                text("9261234567"), text("English"), text("Haryana"), text(currentAddress), text("Karnal"));
+                text(mobile), text("English"), text("Haryana"), text(currentAddress), text("Karnal"));
     }
 }

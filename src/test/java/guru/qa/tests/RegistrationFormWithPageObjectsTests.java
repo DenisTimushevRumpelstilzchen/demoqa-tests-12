@@ -19,12 +19,13 @@ public class RegistrationFormWithPageObjectsTests {
 
     @Test
     void fillFormTest() {
-        new RegistrationFormPage().openPage();
+        RegistrationFormPage registrationFormPage = new RegistrationFormPage();
+        registrationFormPage.openPage();
+        registrationFormPage.setFirstName("Alexander");
+        registrationFormPage.setLastName("Pushkin");
+        registrationFormPage.setEmail("alexanderpushkin@mail.ru");
+        registrationFormPage.setGender("Other");
 
-        $("#firstName").setValue("Alexander");
-        $("#lastName").setValue("Pushkin");
-        $("#userEmail").setValue("alexanderpushkin@mail.ru");
-        $("#gender-radio-1").parent().click(); //parent() указывает на родителя клика
         $("#userNumber").setValue("9261234567");
         $("#dateOfBirthInput").click();
         $(".react-datepicker__month-select").selectOption("May");
@@ -41,8 +42,6 @@ public class RegistrationFormWithPageObjectsTests {
         $("#submit").click();
 
         $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
-        $(".table-responsive").shouldHave(text("Alexander Pushkin"), text("alexanderpushkin@mail.ru"),
-                text("9261234567"), text("st. Prechistenka 12/2"), text("English"),
-                text("Haryana"), text("Karnal")); // сверка результата
+        registrationFormPage.checkResult("Student Name", "Alexander Pushkin");
     }
 }

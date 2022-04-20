@@ -10,7 +10,6 @@ import static com.codeborne.selenide.Selenide.*;
 import static java.lang.String.format;
 
 public class RegistrationFormWithTestDataTests {
-    // домашнее задание 5. Продолжаем разрабатывать автотесты. PageObjects
 
     String firstName = "Alexander",
             lastName = "Pushkin",

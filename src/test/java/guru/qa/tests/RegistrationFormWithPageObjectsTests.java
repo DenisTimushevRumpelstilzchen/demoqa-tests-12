@@ -9,7 +9,6 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
 public class RegistrationFormWithPageObjectsTests {
-    // домашнее задание 3. Погружаемся в инструментарий и библиотеки. от 01 апреля 2022 г.
 
     @BeforeAll
     static void setUp() {

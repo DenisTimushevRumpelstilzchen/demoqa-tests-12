@@ -13,7 +13,6 @@ import static guru.qa.utils.RandomUtils.getRandomString;
 import static java.lang.String.format;
 
 public class RegistrationFormWithFakerTests {
-    // домашнее задание 5. Продолжаем разрабатывать автотесты. PageObjects
 
     Faker faker = new Faker();
 

@@ -12,7 +12,6 @@ import static guru.qa.utils.RandomUtils.getRandomString;
 import static java.lang.String.format;
 
 public class RegistrationFormWithRandomUtilsTests {
-    // домашнее задание 5. Продолжаем разрабатывать автотесты. PageObjects
 
     String firstName = getRandomString(10),
             lastName = getRandomString(10),

@@ -2,6 +2,7 @@ package guru.qa.tests;
 
 import com.codeborne.selenide.Configuration;
 import com.github.javafaker.Faker;
+import guru.qa.pages.RegistrationFormPage;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
@@ -29,10 +30,7 @@ public class RegistrationFormTestsHomework {
 
     @Test
     void fillFormTest() {
-        open("/automation-practice-form");
-        $(".practice-form-wrapper").shouldHave(text("Student Registration Form"));
-        executeJavaScript("$('footer').remove()");
-        executeJavaScript("$('#fixedban').remove()");
+        new RegistrationFormPage().openPage();
 
         $("#firstName").setValue(firstName);
         $("#lastName").setValue(lastName);

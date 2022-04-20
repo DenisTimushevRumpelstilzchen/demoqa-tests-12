@@ -1,6 +1,7 @@
 package guru.qa.tests;
 
 import com.codeborne.selenide.Configuration;
+import guru.qa.pages.RegistrationFormPage;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
@@ -18,10 +19,7 @@ public class RegistrationFormWithPageObjectsTests {
 
     @Test
     void fillFormTest() {
-        open("/automation-practice-form");
-        $(".practice-form-wrapper").shouldHave(text("Student Registration Form"));
-        executeJavaScript("$('footer').remove()"); // убираем баннер
-        executeJavaScript("$('#fixedban').remove()"); // убираем баннер
+        new RegistrationFormPage().openPage();
 
         $("#firstName").setValue("Alexander");
         $("#lastName").setValue("Pushkin");

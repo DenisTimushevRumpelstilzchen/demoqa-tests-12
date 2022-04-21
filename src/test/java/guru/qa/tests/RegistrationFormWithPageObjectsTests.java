@@ -11,6 +11,8 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class RegistrationFormWithPageObjectsTests {
 
+    RegistrationFormPage registrationFormPage = new RegistrationFormPage();
+
     @BeforeAll
     static void setUp() {
         Configuration.baseUrl = "https://demoqa.com"; // основной адрес
@@ -19,12 +21,11 @@ public class RegistrationFormWithPageObjectsTests {
 
     @Test
     void fillFormTest() {
-        RegistrationFormPage registrationFormPage = new RegistrationFormPage();
-        registrationFormPage.openPage();
-        registrationFormPage.setFirstName("Alexander");
-        registrationFormPage.setLastName("Pushkin");
-        registrationFormPage.setEmail("alexanderpushkin@mail.ru");
-        registrationFormPage.setGender("Other");
+        registrationFormPage.openPage().openPage()
+                .setFirstName("Alexander")
+                .setLastName("Pushkin")
+                .setEmail("alexanderpushkin@mail.ru")
+                .setGender("Other");
 
         $("#userNumber").setValue("9261234567");
         $("#dateOfBirthInput").click();
@@ -43,5 +44,7 @@ public class RegistrationFormWithPageObjectsTests {
 
         $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
         registrationFormPage.checkResult("Student Name", "Alexander Pushkin");
+        registrationFormPage.checkResult("Student Email", "alexanderpushkin@mail.ru");
+        registrationFormPage.checkResult("Gender", "Other");
     }
 }

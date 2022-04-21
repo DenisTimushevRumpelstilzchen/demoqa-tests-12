@@ -43,8 +43,8 @@ public class RegistrationFormWithPageObjectsTests {
         $("#submit").click();
 
         $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
-        registrationFormPage.checkResult("Student Name", "Alexander Pushkin");
-        registrationFormPage.checkResult("Student Email", "alexanderpushkin@mail.ru");
-        registrationFormPage.checkResult("Gender", "Other");
+        registrationFormPage.checkResult("Student Name", "Alexander Pushkin")
+                .checkResult("Student Email", "alexanderpushkin@mail.ru")
+                .checkResult("Gender", "Other");
     }
 }

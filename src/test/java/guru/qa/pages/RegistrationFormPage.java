@@ -10,27 +10,32 @@ public class RegistrationFormPage {
 
 
     // actions
-    public void openPage(){
+    public RegistrationFormPage openPage(){
         open("/automation-practice-form");
         $(".practice-form-wrapper").shouldHave(text("Student Registration Form"));
         executeJavaScript("$('footer').remove()"); // убираем баннер
         executeJavaScript("$('#fixedban').remove()"); // убираем баннер
+        return this;
     }
 
-    public void setFirstName(String value) {
+    public RegistrationFormPage setFirstName(String value) {
         $("#firstName").setValue(value);
+        return this;
     }
 
-    public void setLastName(String value) {
+    public RegistrationFormPage setLastName(String value) {
         $("#lastName").setValue(value);
+        return this;
     }
 
-    public void setEmail(String value) {
+    public RegistrationFormPage setEmail(String value) {
         $("#userEmail").setValue(value);
+        return this;
     }
 
-    public void setGender(String value) {
+    public RegistrationFormPage setGender(String value) {
         $("#genterWrapper").$(byText(value)).click();
+        return this;
     }
 
     public void checkResult(String key, String value) {

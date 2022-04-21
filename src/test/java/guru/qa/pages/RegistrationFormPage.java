@@ -38,8 +38,9 @@ public class RegistrationFormPage {
         return this;
     }
 
-    public void checkResult(String key, String value) {
+    public RegistrationFormPage checkResult(String key, String value) {
         $(".table-responsive").$(byText(key))
                 .parent().shouldHave(text(value));
+        return this;
     }
 }

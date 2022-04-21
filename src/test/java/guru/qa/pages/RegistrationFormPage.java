@@ -1,5 +1,7 @@
 package guru.qa.pages;
 
+import com.codeborne.selenide.SelenideElement;
+
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
@@ -7,7 +9,7 @@ import static com.codeborne.selenide.Selenide.executeJavaScript;
 
 public class RegistrationFormPage {
     // locators
-
+    SelenideElement firstNameInput = $("#firstName");
 
     // actions
     public RegistrationFormPage openPage(){
@@ -19,7 +21,7 @@ public class RegistrationFormPage {
     }
 
     public RegistrationFormPage setFirstName(String value) {
-        $("#firstName").setValue(value);
+        firstNameInput.setValue(value);
         return this;
     }
 

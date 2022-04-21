@@ -28,7 +28,10 @@ public class RegistrationFormWithPageObjectsTests {
                 .setGender("Other");
 
         $("#userNumber").setValue("9261234567");
-        registrationFormPage.setBirthDate("30", "July", "2008");
+        $("#dateOfBirthInput").click();
+        $(".react-datepicker__month-select").selectOption("May");
+        $(".react-datepicker__year-select").selectOption("1999");
+        $(".react-datepicker__day--026").click();
         $("#subjectsInput").setValue("English").pressEnter();
         $("#hobbies-checkbox-2").parent().click();
         $("#uploadPicture").uploadFromClasspath("img/1.png");
